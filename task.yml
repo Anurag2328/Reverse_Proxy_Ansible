@@ -1,0 +1,29 @@
+- hosts: apache_web
+
+  vars:
+  - loadbalancer_port: 8080
+
+  tasks:
+  - name: installing HAProxy 
+    package:
+            name: "haproxy"
+            state: present
+    register: haproxy_install
+
+  - name: haproxy config
+    template:
+            dest: "/etc/haproxy/haproxy.cfg"
+            src: "/ws_task_12.1/haproxy.cfg.j2"
+    when: haproxy_install.rc == 0
+    notify: haproxy restart
+
+  - name: start service
+    service:
+            name: "haproxy"
+            state: started
+
+  handlers:
+  - name: haproxy restart
+    service:
+            name: "haproxy"
+            state: restarted    
