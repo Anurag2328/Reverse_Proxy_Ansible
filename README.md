@@ -122,7 +122,7 @@ after the file successfully executed try to ping the all the hosts to confirm if
 use commmand : ```ansible all -m ping```
 
 
-**Step 9*** : Execute haproxy.yml file as it contains reverse proxy configuration for load balancer.
+**Step 9** : Execute haproxy.yml file as it contains reverse proxy configuration for load balancer.
 
 Command : ```ansible-playbook haproxy.yml```
 
