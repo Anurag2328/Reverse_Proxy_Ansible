@@ -58,7 +58,8 @@ Goto the directory where we download the ec2.py and ec2.ini files, here we need 
 
 “ export AWS_REGION= 'ap-south-1'
 ```
-Note : We can also use vault (a service provided by ansible for safe keeping of the sensitive data) to store the keys > shown in step 6
+Note : We can also use vault (a service provided by ansible for safe keeping of the sensitive data) to store the keys 
+> shown in step 6
 
 
 **Step 5** : Setup ansible configuration file
@@ -68,7 +69,10 @@ There are few details we have to provide in this file
 - Provide path of the dynamic inventory file i.e the directory where we install ec2.py and ec2.ini.
 - disable host_key_checking
 - Set remote user (name of the user we created using IAM)
-- Provide path of the private key (We need to secure the private key as well so execute the ```chmod 400 <key_name>.pem```)
+- Provide path of the private key (We need to secure the private key as well so execute the 
+   ```
+   chmod 400 <key_name>.pem
+   ```
 - Set privileges escalation
 
 
@@ -87,7 +91,8 @@ We can create, edit, view, delete the vault using the command above.
 Now write the keys inside the vault in key-value pair format so that we can use them in code file as variables.
 
 for the safe keep of the keys execute command 
-```chmod 400 <vault_name>.yml
+```
+chmod 400 <vault_name>.yml
 ```
 
 **Note : chmod 400 <file_name> - Gives the user read permission, and removes all other permission.**
